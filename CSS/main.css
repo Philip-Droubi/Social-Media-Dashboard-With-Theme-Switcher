@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    /* Primary */
+    --Lime-Green: hsl(163, 72%, 41%);
+    --Bright-Red: hsl(356, 69%, 56%);
+    --Facebook: hsl(208, 92%, 53%);
+    --Twitter: hsl(203, 89%, 53%);
+    --Instagram: linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+    --YouTube: hsl(348, 97%, 39%);
+    /* Dark Theme */
+    --Toggle: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    /* Light Theme */
+    /* --Toggle: hsl(230, 22%, 74%); */
+    /* Dark Theme */
+    --Very-Dark-Blue-BG: hsl(230, 17%, 14%);
+    --Very-Dark-Blue-Top-BG-Pattern: hsl(232, 19%, 15%);
+    --Dark-Desaturated-Blue-Card-BG: hsl(228, 28%, 20%);
+    --Desaturated-Blue-Text: hsl(228, 34%, 66%);
+    --White-Text: hsl(0, 0%, 100%);
+    /* Light Theme */
+    --White-BG: hsl(0, 0%, 100%);
+    --Very-Pale-Blue-Top-BG-Pattern: hsl(225, 100%, 98%);
+    --Light-Grayish-Blue-Card-BG: hsl(227, 47%, 96%);
+    --Dark-Grayish-Blue-Text: hsl(228, 12%, 44%);
+    --Very-Dark-Blue-Text: hsl(230, 17%, 14%);
+    --font-size: 14px;
+}
+
+/* Start global rules */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--Very-Dark-Blue-BG);
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size);
+    transition: 0.2s;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 96%;
+    width: 1116px;
+    margin: 37px auto 46px;
+}
+
+nav .title {
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--White-Text);
+}
+
+nav .followers {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--Desaturated-Blue-Text);
+    margin-top: 5px;
+    margin-left: 1px;
+    letter-spacing: 0.14px;
+}
+
+nav .theme-controller {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--Desaturated-Blue-Text);
+    margin-top: -6px;
+    width: 138px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+nav .theme-controller .toggle {
+    position: relative;
+    background: var(--Toggle);
+    width: 48px;
+    height: 24px;
+    border-radius: 12px;
+    margin-right: 3px;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+}
+
+nav .theme-controller .ball {
+    position: absolute;
+    left: 3px;
+    background-color: var(--Dark-Desaturated-Blue-Card-BG);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    transition: 0.2s;
+}
+
+main {
+    max-width: 96%;
+    width: 1116px;
+    margin: 0 auto;
+}
+
+main .card {
+    background-color: var(--Dark-Desaturated-Blue-Card-BG);
+}
+
+main .upper-cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
