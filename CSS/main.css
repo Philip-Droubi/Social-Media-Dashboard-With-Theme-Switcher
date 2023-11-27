@@ -8,22 +8,29 @@
     --Twitter: hsl(203, 89%, 53%);
     --Instagram: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
     --YouTube: hsl(348, 97%, 39%);
-    /* Dark Theme */
     --Toggle: linear-gradient(70deg, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
-    /* Light Theme */
-    /* --Toggle: hsl(230, 22%, 74%); */
+    /* Main colors */
+    --Body-background: var(--Very-Dark-Blue-BG);
+    --BG-Pattern: var(--Very-Dark-Blue-Top-BG-Pattern);
+    --Card-BG: var(--Dark-Desaturated-Blue-Card-BG);
+    --Card-BG-Hover: var(--Dark-Desaturated-Blue-Card-BG-Hover);
+    --Text-Color: var(--Desaturated-Blue-Text);
+    --White-Text-Color: var(--White-Text);
     /* Dark Theme */
     --Very-Dark-Blue-BG: hsl(230, 17%, 14%);
     --Very-Dark-Blue-Top-BG-Pattern: hsl(232, 19%, 15%);
     --Dark-Desaturated-Blue-Card-BG: hsl(228, 28%, 20%);
+    --Dark-Desaturated-Blue-Card-BG-Hover: hsl(228, 25.5%, 27%);
     --Desaturated-Blue-Text: hsl(228, 34%, 66%);
     --White-Text: hsl(0, 0%, 100%);
     /* Light Theme */
     --White-BG: hsl(0, 0%, 100%);
     --Very-Pale-Blue-Top-BG-Pattern: hsl(225, 100%, 98%);
     --Light-Grayish-Blue-Card-BG: hsl(227, 47%, 96%);
+    --Light-Grayish-Blue-Card-BG-Hover: hsl(228, 86%, 95%);
     --Dark-Grayish-Blue-Text: hsl(228, 12%, 44%);
     --Very-Dark-Blue-Text: hsl(230, 17%, 14%);
+    /*  */
     --font-size: 14px;
 }
 
@@ -37,7 +44,7 @@
     margin: 0;
     list-style: none;
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.25s;
 }
 
 body::-webkit-scrollbar {
@@ -49,7 +56,7 @@ html {
 }
 
 body {
-    background: var(--Very-Dark-Blue-BG);
+    background: var(--Body-background);
     min-height: 100vh;
     font-family: 'Inter', sans-serif;
     font-size: var(--font-size);
@@ -64,9 +71,10 @@ body::after {
     left: 0;
     width: 100%;
     height: 244px;
-    background-color: var(--Very-Dark-Blue-Top-BG-Pattern);
+    background-color: var(--BG-Pattern);
     border-bottom-right-radius: 16px;
     border-bottom-left-radius: 16px;
+    transition: 0.25s;
     z-index: -1;
 }
 
@@ -82,13 +90,13 @@ nav {
 nav .title {
     font-weight: 700;
     font-size: 28px;
-    color: var(--White-Text);
+    color: var(--White-Text-Color);
 }
 
 nav .followers {
     font-size: 14px;
     font-weight: 700;
-    color: var(--Desaturated-Blue-Text);
+    color: var(--Text-Color);
     margin-top: 5px;
     margin-left: 1px;
     letter-spacing: 0.14px;
@@ -98,7 +106,7 @@ nav .theme-controller {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: var(--Desaturated-Blue-Text);
+    color: var(--Text-Color);
     margin-top: -6px;
     width: 138px;
     font-weight: 700;
@@ -107,24 +115,36 @@ nav .theme-controller {
 
 nav .theme-controller .toggle {
     position: relative;
-    background: var(--Toggle);
     width: 48px;
     height: 24px;
+    background: var(--Toggle);
     border-radius: 12px;
     margin-right: 3px;
     display: flex;
     align-items: center;
     transition: 0.2s;
+    transition-timing-function: linear;
+}
+
+nav .theme-controller .toggle:hover {
+    box-shadow: 0 0 8px 0 var(--Lime-Green);
 }
 
 nav .theme-controller .ball {
     position: absolute;
-    left: 3px;
-    background-color: var(--Dark-Desaturated-Blue-Card-BG);
     border-radius: 50%;
     width: 18px;
     height: 18px;
-    transition: 0.2s;
+    background-color: var(--Card-BG);
+    transition: 0.3s;
+}
+
+.dark-mode nav .theme-controller .ball {
+    left: 3px;
+}
+
+.light-mode nav .theme-controller .ball {
+    left: calc(100% - 21px);
 }
 
 main {
@@ -136,7 +156,14 @@ main {
 main .card {
     overflow: hidden;
     position: relative;
-    background-color: var(--Dark-Desaturated-Blue-Card-BG);
+    background-color: var(--Card-BG);
+    transition: 0.24s;
+    cursor: pointer;
+}
+
+main .card:hover {
+    transform: translateY(-6px);
+    background-color: var(--Card-BG-Hover);
 }
 
 main .card .gain {
@@ -175,7 +202,7 @@ main .upper-cards .card {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--Desaturated-Blue-Text);
+    color: var(--Text-Color);
     font-size: 12px;
     gap: 8px;
 }
@@ -186,14 +213,14 @@ main .upper-cards .card {
     font-weight: 700;
     margin: 1.194rem 0 0;
     letter-spacing: -2px;
-    color: var(--White-Text);
+    color: var(--White-Text-Color);
 }
 
 .upper-cards .card .unit {
     letter-spacing: 4.9px;
     font-size: 12px;
     text-transform: uppercase;
-    color: var(--Desaturated-Blue-Text) !important;
+    color: var(--Text-Color) !important;
 }
 
 .upper-cards .card .gain {
@@ -239,7 +266,7 @@ main h2 {
     font-size: 24px;
     margin-top: 47px;
     margin-bottom: 24px;
-    color: var(--White-Text);
+    color: var(--White-Text-Color);
     letter-spacing: 0.1px;
 }
 
@@ -267,12 +294,12 @@ main .bottom-cards .card .bottom {
 
 main .bottom-cards .card .top p {
     font-weight: 700;
-    color: var(--Desaturated-Blue-Text);
+    color: var(--Text-Color);
 }
 
 
 main .bottom-cards .card .bottom .num {
-    color: var(--White-Text);
+    color: var(--White-Text-Color);
     font-weight: 700;
     font-size: 32px;
 }
@@ -293,10 +320,10 @@ main .bottom-cards .card .gain img {
     max-width: 450px;
     padding: 12px 20px;
     border-radius: 30px;
-    background-color: var(--Dark-Desaturated-Blue-Card-BG);
+    background-color: var(--Card-BG);
     font-size: 14px;
     text-align: center;
-    color: var(--White-Text);
+    color: var(--White-Text-Color);
     font-weight: 600;
     margin: 16px auto 12px;
 }
@@ -329,11 +356,19 @@ main .bottom-cards .card .gain img {
     nav .theme-controller {
         margin-top: 20px;
         padding-top: 20px;
-        border-top: 1px solid var(--Desaturated-Blue-Text);
+        border-top: 1px solid var(--Text-Color);
         width: 100%;
     }
 
     nav .theme-controller .toggle {
         margin-right: 0;
+    }
+
+    main .upper-cards {
+        grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+    }
+
+    main .bottom-cards {
+        grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
     }
 }
