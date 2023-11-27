@@ -89,6 +89,7 @@ nav {
 
 nav .title {
     font-weight: 700;
+    margin: 0;
     font-size: 28px;
     color: var(--White-Text-Color);
 }
